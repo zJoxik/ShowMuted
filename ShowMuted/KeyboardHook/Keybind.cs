@@ -35,5 +35,27 @@ namespace ShowMuted.KeyboardHook
 
             return true;
         }
+
+        public bool Contains(Keybind other)
+        {
+            if (other == null)
+                return false;
+
+            if (VirtualKeyCode != other.VirtualKeyCode)
+                return false;
+
+            if (Modifiers.Count < other.Modifiers.Count)
+                return false;
+
+            foreach (ModifierKeys modifier in other.Modifiers)
+            {
+                if (!Modifiers.Contains(modifier))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

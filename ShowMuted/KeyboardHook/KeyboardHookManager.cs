@@ -63,7 +63,7 @@ namespace ShowMuted.KeyboardHook
         {
             var pressedKey = new Keybind(_pressedModifierKeys, vkCode);
 
-            if (!pressedKey.Equals(_registeredKey)) return;
+            if (!pressedKey.Contains(_registeredKey)) return;
 
             _registeredAction?.Invoke();
         }
